@@ -5,6 +5,18 @@ import { styled } from "styled-components";
 import { useForm } from "react-hook-form";
 import { toDoState } from "../atoms";
 
+interface IDraggableCardProps {
+  idx: number;
+  toDoId: number;
+  toDoText: string;
+  boardId: string;
+  edit: boolean;
+}
+
+interface IForm {
+  toDo: string;
+}
+
 const Card = styled.div<{ $isDragging: boolean }>`
   display: flex;
   justify-content: space-between;
@@ -47,16 +59,6 @@ const Button = styled.button`
   text-align: end;
 `;
 
-interface IDraggableCardProps {
-  idx: number;
-  toDoId: number;
-  toDoText: string;
-  boardId: string;
-  edit: boolean;
-}
-interface IForm {
-  toDo: string;
-}
 const DraggableCard = ({
   idx,
   toDoId,

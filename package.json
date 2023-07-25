@@ -11,6 +11,7 @@
     "@types/react": "^18.2.6",
     "@types/react-dom": "^18.2.4",
     "@types/styled-components": "^5.1.26",
+    "gh-pages": "^5.0.0",
     "react": "^18.2.0",
     "react-beautiful-dnd": "^13.1.1",
     "react-dom": "^18.2.0",
@@ -26,7 +27,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -48,5 +51,6 @@
   },
   "devDependencies": {
     "@types/react-beautiful-dnd": "^13.1.4"
-  }
+  },
+  "homepage": "https://hyundee.github.io/kanban-board"
 }
