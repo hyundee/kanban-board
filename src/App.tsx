@@ -8,12 +8,11 @@ import { useForm } from "react-hook-form";
 
 const Wrapper = styled.div`
   display: flex;
-  max-width: 860px;
+  max-width: 800px;
   width: 100%;
   height: 100vh;
   margin: 0 auto;
-  justify-content: center;
-  align-content: center;
+  place-content: center;
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
@@ -22,9 +21,10 @@ const Wrapper = styled.div`
 
 const Boards = styled.div`
   display: grid;
-  width: 100%;
-  gap: 10px;
+  width: 800px;
+  place-items: center;
   grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
 `;
 
 interface IForm {

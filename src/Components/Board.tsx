@@ -20,7 +20,7 @@ interface IForm {
 }
 
 const Wrapper = styled.div`
-  width: 280px;
+  width: 100%;
   padding: 20px 0 20px 0;
   background-color: ${(props) => props.theme.boardColor};
   border-radius: 5px;

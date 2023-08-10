@@ -36,7 +36,7 @@ const Card = styled.div<{ $isDragging: boolean }>`
 `;
 
 const Form = styled.form`
-  width: 74%;
+  width: 70%;
   opacity: 1;
   input {
     width: 100%;
@@ -52,7 +52,7 @@ const Form = styled.form`
 `;
 
 const ButtonWrapper = styled.div`
-  width: 26%;
+  width: 30%;
   opacity: 0;
   transition: 0.15s linear;
 `;
