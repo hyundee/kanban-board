@@ -21,7 +21,7 @@ interface IForm {
 
 const Wrapper = styled.div`
   width: 280px;
-  padding-top: 20px;
+  padding: 20px 0 20px 0;
   background-color: ${(props) => props.theme.boardColor};
   border-radius: 5px;
   min-height: 300px;
@@ -35,6 +35,23 @@ const Title = styled.h2`
   font-weight: 600;
   margin-bottom: 10px;
   font-size: 18px;
+`;
+
+const Button = styled.button`
+  background-color: transparent;
+  padding: 0;
+  font-size: 15px;
+  width: 100%;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s linear;
+  &:hover {
+    background-color: #fc7878;
+  }
 `;
 
 const Area = styled.div<IAreaProps>`
@@ -82,6 +99,13 @@ const Board = ({ toDos, boardId }: IBoardProps) => {
     });
     setValue("toDo", "");
   };
+  const onDelete = () => {
+    setToDos((allBoards) => {
+      const copyBoards = { ...allBoards };
+      delete copyBoards[boardId];
+      return { ...copyBoards };
+    });
+  };
   return (
     <Wrapper>
       <Title>{boardId}</Title>
@@ -114,6 +138,11 @@ const Board = ({ toDos, boardId }: IBoardProps) => {
           </Area>
         )}
       </Droppable>
+      {boardId !== "To Do" && boardId !== "Doing" && boardId !== "Done" && (
+        <Button onClick={onDelete}>
+          <span className="material-icons-round">delete</span>
+        </Button>
+      )}
     </Wrapper>
   );
 };

@@ -28,13 +28,16 @@ const Card = styled.div<{ $isDragging: boolean }>`
     props.$isDragging ? "#8dc6ff" : props.theme.cardColor};
   box-shadow: ${(props) =>
     props.$isDragging ? "0px 2px 5px rgba(0, 0, 0, 0.05)" : "none"};
-  div {
-    width: 26%;
+  &:hover {
+    div {
+      opacity: 1;
+    }
   }
 `;
 
 const Form = styled.form`
   width: 74%;
+  opacity: 1;
   input {
     width: 100%;
     font-size: 16px;
@@ -46,6 +49,12 @@ const Form = styled.form`
       outline: none;
     }
   }
+`;
+
+const ButtonWrapper = styled.div`
+  width: 26%;
+  opacity: 0;
+  transition: 0.15s linear;
 `;
 
 const Button = styled.button`
@@ -113,6 +122,7 @@ const DraggableCard = ({
       };
     });
   };
+
   return (
     <Draggable index={idx} key={toDoId} draggableId={toDoId + ""}>
       {(magic, info) => (
@@ -126,7 +136,7 @@ const DraggableCard = ({
             {edit ? (
               <input
                 type="text"
-                placeholder={`Edit task on ${toDoText}`}
+                placeholder={`Edit task a ${toDoText}`}
                 {...register("toDo", { required: false })}
                 autoFocus
               />
@@ -134,7 +144,7 @@ const DraggableCard = ({
               <span>{toDoText}</span>
             )}
           </Form>
-          <div>
+          <ButtonWrapper>
             {edit ? (
               <Button onClick={handleSubmit(onVaild)}>
                 <span className="material-icons-round">check</span>
@@ -147,7 +157,7 @@ const DraggableCard = ({
             <Button onClick={onDelete}>
               <span className="material-icons-round">delete</span>
             </Button>
-          </div>
+          </ButtonWrapper>
         </Card>
       )}
     </Draggable>

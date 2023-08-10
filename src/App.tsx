@@ -67,6 +67,7 @@ function App() {
   const { register, handleSubmit, setValue } = useForm<IForm>();
   const onValid = ({ board }: IForm) => {
     setToDos((allBoards) => {
+      console.log(allBoards.keys);
       return {
         ...allBoards,
         [board]: [],
@@ -74,6 +75,7 @@ function App() {
     });
     setValue("board", "");
   };
+
   return (
     <>
       <GlobalStyle />
